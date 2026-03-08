@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>خدمة | محمد وسام</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">محمد وسام</a>
+      <button class="nav-toggle" id="navToggle" aria-label="قائمة">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#hero">الرئيسية</a></li>
+        <li><a href="index.html#about">عني</a></li>
+        <li><a href="index.html#services">خدماتي</a></li>
+        <li><a href="index.html#projects">مشاريعي</a></li>
+        <li><a href="index.html#contact">تواصل</a></li>
+      </ul>
+      <a href="dashboard.html" class="btn-nav-cta" target="_blank">⚙️ لوحة التحكم</a>
+    </div>
+  </nav>
+
+  <!-- Content injected by JS -->
+  <div id="svcContent" class="svc-page"></div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">محمد وسام</div>
+      <p>صُنع بـ 💜 وكثير من الـ Figma</p>
+      <p>© 2024 محمد وسام — جميع الحقوق محفوظة</p>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast hidden"></div>
+  <script src="app.js"></script>
+  <script>
+  /* ── SERVICE PAGE LOGIC ── */
+  (function(){
+    const COLOR_ACCENT_HEX = {
+      pink:  { from:'#ff2d78', to:'#9b5de5', text:'var(--pink)'   },
+      cyan:  { from:'#00e5ff', to:'#9b5de5', text:'var(--cyan)'   },
+      purple:{ from:'#9b5de5', to:'#ff2d78', text:'var(--purple)' },
+      yellow:{ from:'#f7e733', to:'#ff2d78', text:'var(--yellow)' },
+      green: { from:'#00f5a0', to:'#00e5ff', text:'var(--green)'  },
+    };
+
+    function getServiceId(){
+      return new URLSearchParams(window.location.search).get('id');
+    }
+
+    function render(){
+      const id = getServiceId();
+      const services = STORE.getServices();
+      const svc = services.find(s => s.id === id);
+
+      if(!svc){
+        document.getElementById('svcContent').innerHTML = `
+          <div style="text-align:center;padding:8rem 2rem;color:var(--dim)">
+            <div style="font-size:4rem;margin-bottom:1rem">🔍</div>
+            <h2 style="font-family:Tajawal,sans-serif;font-size:2rem;margin-bottom:1rem">الخدمة غير موجودة</h2>
+            <a href="index.html#services" class="btn-glow" style="margin-top:1rem">← العودة للخدمات</a>
+          </div>`;
+        return;
+      }
+
+      // Update page title
+      document.title = `${svc.name} | محمد وسام`;
+
+      const col = COLOR_ACCENT_HEX[svc.color] || COLOR_ACCENT_HEX.pink;
+
+      // Related services (exclude current)
+      const related = services.filter(s => s.id !== svc.id).slice(0,3);
+
+      // Features list
+      const features = svc.features || [];
+      const featureItems = features.length
+        ? features.map(f=>`<li>${f}</li>`).join('')
+        : '<li>لم تُضَف تفاصيل الميزات بعد.</li>';
+
+      // Process steps
+      const steps = svc.process || [];
+      const stepItems = steps.length
+        ? steps.map((s,i)=>`
+            <div class="svc-step reveal">
+              <div class="svc-step-line">
+                <div class="svc-step-dot">${i+1}</div>
+                <div class="svc-step-connector"></div>
+              </div>
+              <div class="svc-step-text">
+                <h4>${s}</h4>
+              </div>
+            </div>`).join('')
+        : '';
+
+      // Related cards
+      const relatedCards = related.map(r=>`
+        <a href="service.html?id=${r.id}" class="service-card reveal">
+          <span class="service-icon">${r.icon}</span>
+          <div class="service-name">${r.name}</div>
+          <p class="service-desc">${r.desc}</p>
+          <div class="service-accent" style="background:${COLOR_ACCENT[r.color]||'var(--pink)'}"></div>
+          <div class="service-cta">اعرف أكثر →</div>
+        </a>`).join('');
+
+      document.getElementById('svcContent').innerHTML = `
+        <!-- HERO -->
+        <div class="svc-hero" style="background:linear-gradient(135deg,${col.from}14,${col.to}0a),var(--bg2)">
+          <div class="hero-blobs"><div class="blob b1" style="background:${col.from}"></div><div class="blob b2" style="background:${col.to}"></div></div>
+          <div class="svc-hero-inner">
+            <div class="svc-hero-left reveal">
+              <nav class="svc-breadcrumb" aria-label="مسار">
+                <a href="index.html">الرئيسية</a>
+                <span>›</span>
+                <a href="index.html#services">الخدمات</a>
+                <span>›</span>
+                <span style="color:var(--white)">${svc.name}</span>
+              </nav>
+              <span class="svc-hero-icon">${svc.icon}</span>
+              <h1 class="svc-hero-title">${svc.name}</h1>
+              <p class="svc-hero-desc">${svc.fullDesc || svc.desc}</p>
+              <div class="svc-meta-chips">
+                ${svc.duration ? `<div class="svc-chip"><div><div class="svc-chip-label">المدة</div><div class="svc-chip-val">⏱ ${svc.duration}</div></div></div>` : ''}
+                ${svc.startingPrice ? `<div class="svc-chip"><div><div class="svc-chip-label">يبدأ من</div><div class="svc-chip-val">💰 ${svc.startingPrice}</div></div></div>` : ''}
+              </div>
+            </div>
+            <div class="svc-hero-visual">
+              <div class="svc-hero-badge" style="background:linear-gradient(135deg,${col.from}22,${col.to}22)">${svc.icon}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BODY -->
+        <div class="svc-body">
+          <div class="svc-main">
+            <!-- Features -->
+            <div class="svc-features reveal">
+              <h2>ما تشمله هذه الخدمة</h2>
+              <ul class="svc-features-list">${featureItems}</ul>
+            </div>
+
+            <!-- Process -->
+            ${stepItems ? `
+            <div class="svc-process">
+              <h2>كيف أعمل</h2>
+              <div class="svc-steps">${stepItems}</div>
+            </div>` : ''}
+          </div>
+
+          <!-- Sidebar -->
+          <div>
+            <div class="svc-sidebar-card reveal">
+              <h3>ابدأ مشروعك الآن</h3>
+              ${svc.startingPrice ? `<div class="svc-price">${svc.startingPrice}</div><div class="svc-price-note">سعر ابتدائي — يتفاوت حسب المشروع</div>` : ''}
+              ${svc.deliverables ? `
+              <div class="svc-deliverables">
+                <strong>📦 المخرجات:</strong>
+                ${svc.deliverables}
+              </div>` : ''}
+              <a href="index.html#contact" class="svc-cta-btn">تواصل معي الآن ✨</a>
+              <a href="index.html#services" class="svc-back-btn">جميع الخدمات ←</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Related -->
+        ${related.length ? `
+        <div class="svc-related">
+          <h2>خدمات أخرى</h2>
+          <div class="svc-related-grid">${relatedCards}</div>
+        </div>` : ''}
+      `;
+
+      // Trigger reveals & cursor on new elements
+      observeReveals(document.getElementById('svcContent'));
+      // Re-run cursor hover detection for new elements (cursor dot already running)
+    }
+
+    // Wait for STORE to be available (app.js loads first, DOMContentLoaded fires after)
+    document.addEventListener('DOMContentLoaded', render);
+  })();
+  </script>
+</body>
+</html>
