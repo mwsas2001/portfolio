@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>محمد وسام | مصمم UI/UX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- ═══════════════════════════════════ NAV ═══════════════════════════════════ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">م.و</div>
+      <button class="nav-toggle" id="navToggle" aria-label="قائمة">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero">الرئيسية</a></li>
+        <li><a href="#about">عني</a></li>
+        <li><a href="#services">خدماتي</a></li>
+        <li><a href="#projects">مشاريعي</a></li>
+        <li><a href="#contact">تواصل</a></li>
+      </ul>
+      <button class="btn-nav-cta" id="openDashboard">⚙️ لوحة التحكم</button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════ HERO ══════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-blobs">
+      <div class="blob b1"></div>
+      <div class="blob b2"></div>
+      <div class="blob b3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">🎨 مصمم UI/UX</div>
+      <h1 class="hero-title">
+        أنا <span class="t-pink">محمد</span><br>
+        <span class="t-stroke">وسام</span> ✦
+      </h1>
+      <p class="hero-desc">أحوّل الأفكار المعقّدة إلى واجهات بصرية سلسة ومُبهجة. أؤمن أن التصميم الجيد يُحكى وليس فقط يُرى.</p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-glow">استعرض أعمالي 🚀</a>
+        <a href="#contact"  class="btn-ghost">تواصل معي</a>
+      </div>
+    </div>
+    <div class="hero-mockup">
+      <div class="mockup-card">
+        <div class="mockup-dots">
+          <span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span>
+        </div>
+        <div class="mockup-palette">
+          <div class="swatch" style="background:var(--pink)"></div>
+          <div class="swatch" style="background:var(--purple)"></div>
+          <div class="swatch" style="background:var(--cyan)"></div>
+          <div class="swatch" style="background:var(--yellow)"></div>
+          <div class="swatch" style="background:var(--green)"></div>
+        </div>
+        <div class="mockup-wire">
+          <div class="wf-block">
+            <div class="wf-line accent"></div>
+            <div class="wf-line"></div>
+            <div class="wf-box" style="background:rgba(255,45,120,.12)"></div>
+          </div>
+          <div class="wf-block">
+            <div class="wf-line" style="background:rgba(0,229,255,.3);width:70%"></div>
+            <div class="wf-line"></div>
+            <div class="wf-box" style="background:rgba(0,229,255,.1)"></div>
+          </div>
+        </div>
+      </div>
+      <div class="float-tag ft1">✅ تصميم مُعتمد</div>
+      <div class="float-tag ft2">⚡ تسليم سريع</div>
+    </div>
+    <div class="hero-scroll"><div class="scroll-line"></div></div>
+  </section>
+
+  <!-- ═══════════════════════════════════ ABOUT ═════════════════════════════════ -->
+  <section id="about">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="sec-label">— 01 / من أنا</span>
+        <h2 class="sec-title">خلف <span class="t-cyan">الشاشة</span></h2>
+        <div class="sec-line"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-avatar reveal">
+          <div class="avatar-frame">🧑‍🎨</div>
+          <div class="avatar-badge">🏆 +5 سنوات خبرة</div>
+        </div>
+        <div class="about-text reveal">
+          <h3>مرحباً! أنا <span class="t-pink">محمد وسام</span></h3>
+          <p>مصمم <strong>UI/UX</strong> شغوف بخلق واجهات تُبسّط الحياة وتُجمّل التجربة الرقمية. أعتقد أن كل نقرة لها أثر عاطفي على المستخدم.</p>
+          <p>عملت مع شركات ناشئة وعلامات تجارية راسخة في مجالات التقنية، التجارة الإلكترونية، والتعليم. أجمع بين <strong>التفكير التحليلي</strong> والحدس الإبداعي.</p>
+          <div class="about-tags">
+            <span class="tag pink">UI Design</span>
+            <span class="tag cyan">UX Research</span>
+            <span class="tag purple">Prototyping</span>
+            <span class="tag yellow">Brand Identity</span>
+            <span class="tag pink">Motion Design</span>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-box"><span class="stat-num">60+</span><span class="stat-lbl">مشروع</span></div>
+            <div class="stat-box"><span class="stat-num">40+</span><span class="stat-lbl">عميل</span></div>
+            <div class="stat-box"><span class="stat-num">5★</span><span class="stat-lbl">تقييم</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ SERVICES ══════════════════════════════ -->
+  <section id="services">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="sec-label">— 02 / خدماتي</span>
+        <h2 class="sec-title">ماذا <span class="t-cyan">أقدّم</span></h2>
+        <div class="sec-line"></div>
+      </div>
+      <div class="services-grid" id="servicesGrid">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ PROJECTS ═════════════════════════════ -->
+  <section id="projects">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="sec-label">— 03 / مشاريعي</span>
+        <h2 class="sec-title">أعمال <span class="t-cyan">مختارة</span></h2>
+        <div class="sec-line"></div>
+      </div>
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ CONTACT ═══════════════════════════════ -->
+  <section id="contact">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="sec-label">— 04 / تواصل</span>
+        <h2 class="sec-title">لنبني شيئاً <span class="t-cyan">مذهلاً</span> 🔥</h2>
+        <div class="sec-line"></div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-left reveal">
+          <p>هل لديك مشروع يحتاج روحاً تصميمية؟ أنا هنا. أفضّل المحادثات الصريحة والأفكار الجريئة.</p>
+          <div class="social-list">
+            <a href="mailto:mwasam@design.com" class="social-card s-pink">
+              <span class="si">📧</span>
+              <div><div class="sl">البريد الإلكتروني</div><div class="sv">mwasam@design.com</div></div>
+            </a>
+            <a href="#" class="social-card s-cyan">
+              <span class="si">💼</span>
+              <div><div class="sl">LinkedIn</div><div class="sv">linkedin.com/in/mwasam</div></div>
+            </a>
+            <a href="#" class="social-card s-purple">
+              <span class="si">🎨</span>
+              <div><div class="sl">Behance</div><div class="sv">behance.net/mwasam</div></div>
+            </a>
+            <a href="#" class="social-card s-green">
+              <span class="si">📱</span>
+              <div><div class="sl">واتساب</div><div class="sv">+966 50 000 0000</div></div>
+            </a>
+          </div>
+        </div>
+        <form class="contact-form reveal" id="contactForm">
+          <div class="form-row">
+            <div class="fld"><label>الاسم</label><input type="text" placeholder="اسمك الكريم" /></div>
+            <div class="fld"><label>البريد الإلكتروني</label><input type="email" placeholder="you@example.com" /></div>
+          </div>
+          <div class="fld">
+            <label>نوع المشروع</label>
+            <select>
+              <option>اختر نوع الخدمة...</option>
+              <option>تصميم UI/UX لتطبيق موبايل</option>
+              <option>تصميم موقع ويب</option>
+              <option>هوية بصرية وبراند</option>
+              <option>استشارة تصميمية</option>
+            </select>
+          </div>
+          <div class="fld">
+            <label>رسالتك</label>
+            <textarea placeholder="أخبرني عن فكرتك..."></textarea>
+          </div>
+          <button type="button" class="btn-send" id="sendBtn"><span>إرسال الرسالة ✨</span></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ FOOTER ═══════════════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">م.و</div>
+      <p>صُنع بـ 💜 وكثير من الـ Figma</p>
+      <p>© 2024 محمد وسام — جميع الحقوق محفوظة</p>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════ DASHBOARD MODAL ═══════════════════════════════════ -->
+  <div id="dashboardOverlay" class="dash-overlay hidden">
+    <div class="dash-modal">
+      <div class="dash-header">
+        <h2>⚙️ لوحة التحكم</h2>
+        <button id="closeDashboard" class="dash-close">✕</button>
+      </div>
+
+      <!-- Login Screen -->
+      <div id="loginScreen">
+        <p class="dash-hint">أدخل كلمة المرور للدخول</p>
+        <div class="fld">
+          <label>كلمة المرور</label>
+          <input type="password" id="dashPassword" placeholder="••••••••" />
+        </div>
+        <button class="btn-glow w100" id="loginBtn">دخول 🔑</button>
+        <p class="dash-hint-sm">كلمة المرور الافتراضية: <strong>admin123</strong></p>
+      </div>
+
+      <!-- Dashboard Content -->
+      <div id="dashContent" class="hidden">
+        <div class="dash-tabs">
+          <button class="dash-tab active" data-tab="projects-tab">🗂 المشاريع</button>
+          <button class="dash-tab" data-tab="services-tab">🛠 الخدمات</button>
+        </div>
+
+        <!-- PROJECTS TAB -->
+        <div id="projects-tab" class="dash-panel">
+          <h3>إضافة مشروع جديد</h3>
+          <div class="dash-form">
+            <div class="form-row">
+              <div class="fld"><label>اسم المشروع</label><input type="text" id="pName" placeholder="اسم المشروع" /></div>
+              <div class="fld"><label>السنة</label><input type="text" id="pYear" placeholder="2024" /></div>
+            </div>
+            <div class="fld"><label>الوصف</label><textarea id="pDesc" placeholder="وصف قصير للمشروع..."></textarea></div>
+            <div class="form-row">
+              <div class="fld">
+                <label>الأيقونة (إيموجي)</label>
+                <input type="text" id="pIcon" placeholder="🎨" />
+              </div>
+              <div class="fld">
+                <label>لون الخلفية (CSS gradient)</label>
+                <input type="text" id="pBg" placeholder="linear-gradient(135deg,#1a0030,#6b21a8)" />
+              </div>
+            </div>
+            <div class="fld"><label>التاقات (مفصولة بفاصلة)</label><input type="text" id="pTags" placeholder="UI Design, Figma, Research" /></div>
+            <button class="btn-glow w100" id="addProjectBtn">➕ إضافة المشروع</button>
+          </div>
+          <h3 style="margin-top:1.5rem">المشاريع الحالية</h3>
+          <div id="projectsList" class="dash-list"></div>
+        </div>
+
+        <!-- SERVICES TAB -->
+        <div id="services-tab" class="dash-panel hidden">
+          <h3>إضافة خدمة جديدة</h3>
+          <div class="dash-form">
+            <div class="form-row">
+              <div class="fld"><label>اسم الخدمة</label><input type="text" id="sName" placeholder="تصميم UI" /></div>
+              <div class="fld"><label>الأيقونة (إيموجي)</label><input type="text" id="sIcon" placeholder="🎨" /></div>
+            </div>
+            <div class="fld"><label>الوصف</label><textarea id="sDesc" placeholder="وصف الخدمة..."></textarea></div>
+            <div class="fld">
+              <label>اللون المميز</label>
+              <select id="sColor">
+                <option value="pink">وردي</option>
+                <option value="cyan">سماوي</option>
+                <option value="purple">بنفسجي</option>
+                <option value="yellow">أصفر</option>
+                <option value="green">أخضر</option>
+              </select>
+            </div>
+            <button class="btn-glow w100" id="addServiceBtn">➕ إضافة الخدمة</button>
+          </div>
+          <h3 style="margin-top:1.5rem">الخدمات الحالية</h3>
+          <div id="servicesList" class="dash-list"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
